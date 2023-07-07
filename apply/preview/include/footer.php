@@ -1,0 +1,1 @@
+ <footer class="footer text-center"><?php $year = date('Y'); echo $year ?> &copy; Ekiti State Football Association. Developed by <a href ="https://uptechng.com" target ="blank"> UPTECH </a> </footer>
