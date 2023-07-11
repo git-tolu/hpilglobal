@@ -13,6 +13,12 @@ if (isset($_POST['EmailValidationBTN'])) {
     // echo $user_id;
 
     if (!empty($code)) {
+        $user_id = $_SESSION['user_id'] ;
+        $firstName = $_SESSION['firstName'] ;
+        $lastName = $_SESSION['lastName'] ;
+        $email = $_SESSION['email'] ;
+        $sql = "INSERT INTO `usertransactiondetails` (`user_id`, `firstname`, `lastname`, `email`) VALUES ('$user_id', '$firstName', '$lastName','$email')";
+        $result = mysqli_query($conn, $sql);
         # code...
         $sql = "UPDATE `emailconfirmation` SET `status`='$status' WHERE  user_id = '$user_id' AND `code`='$code'";
         $result = mysqli_query($conn, $sql);

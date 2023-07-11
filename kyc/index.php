@@ -10,6 +10,8 @@ if (isset($_POST['EmailValidationBTN'])) {
     $user_id = 'user_id' . rand(1000, 100000000);
     // $firstName = mysqli_real_escape_string($conn, $_POST['firstName']);
     // $lastName = mysqli_real_escape_string($conn, $_POST['lastName']);
+    $firstName = 'Dear ';
+    $lastName = 'User';
     $email = mysqli_real_escape_string($conn, $_POST['email']);
 
     if (!empty($email)) {

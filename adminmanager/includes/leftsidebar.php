@@ -12,6 +12,9 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="exchangerate.php" aria-expanded="false"><i class="mdi mdi-treasure-chest"></i><span class="hide-menu">Exchangerate </span></a>
                           
                         </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="pendingmembers.php" aria-expanded="false"><i class="mdi mdi-treasure-chest"></i><span class="hide-menu">User Transaction </span></a>
+                        </li>
+
                         <!-- <li class="sidebar-item"> <a class="sidebar-link  waves-effect waves-dark" href="pendingmembers.php" aria-expanded="false"><i class="mdi mdi-account-star"></i><span class="hide-menu">Application </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="pendingmembers.php" class="sidebar-link"><i class="mdi mdi-view-quilt"></i><span class="hide-menu">Pending Members </span></a></li>

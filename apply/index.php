@@ -21,10 +21,12 @@ if (isset($_POST['EmailValidationBTN'])) {
             $_SESSION['user_id'] =  $fetch['user_id'];
             header('location: existingTransaction.php');
         } else {
-            $sql = "INSERT INTO `usertransactiondetails` (`user_id`, `firstname`, `lastname`, `email`) VALUES ('$user_id', '$firstName', '$lastName','$email')";
-            $result = mysqli_query($conn, $sql);
+          
             if ($result) {
                 $_SESSION['user_id'] = $user_id;
+                $_SESSION['firstName'] = $firstName;
+                $_SESSION['lastName'] = $lastName;
+                $_SESSION['email'] = $email;
                 $emailmessage = rand(1000, 9000);
                 $fullname = $firstName . ' ' . $lastName;
                 $status = 'pending';
