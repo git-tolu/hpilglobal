@@ -126,7 +126,11 @@ if (isset($_POST['EmailValidationBTN'])) {
                                         ?>
 
                                         <form action="" method="post">
-
+                                        <div class="d-flex justify-content-center align-items-center text-center text-danger">
+                                    <div class="alert alert-<?= $alert ?>">
+                                        <?= $msg ?>
+                                    </div>
+                                </div>
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon2"><i

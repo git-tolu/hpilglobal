@@ -6,8 +6,7 @@ $yearreg = date("Y");
 $alert = '';
 $msg = '';
 if (isset($_POST['EmailValidationBTN']) && $_SESSION['user_id']) {
-
-
+var_dump($_POST);
     $user_id = $_SESSION['user_id'];
     $address = mysqli_real_escape_string($conn, $_POST['address']);
     $zipcode = mysqli_real_escape_string($conn, $_POST['zipcode']);
@@ -20,10 +19,12 @@ if (isset($_POST['EmailValidationBTN']) && $_SESSION['user_id']) {
     $vat = '';
     $profit = '';
 
-    if (!empty($address && $zipcode && $currency && $amount && $reason && $recipients && $hpiinterac && $agreedrate)) {
+    if (!empty($address)  && !empty($zipcode) && !empty($currency) && !empty($amount) && !empty($reason) && !empty($recipients) && !empty($hpiinterac) && !empty($agreedrate)) {
         # code...
         $sql = "UPDATE `usertransactiondetails` SET `address`='$address',`zipcode`='$zipcode',`currency`='$currency',`amount`=' $amount',`reason`='$reason',`recipients`='$recipients',`hpiinterac`='$hpiinterac',`agreedrate`='$agreedrate',`vat`='$vat',`profit`='$profit' WHERE `user_id`='$user_id'";
         $result = mysqli_query($conn, $sql);
+        var_dump($sql);
+        var_dump($result);
         if ($result) {
             header('location: showdetails.php');
         }
@@ -116,8 +117,12 @@ if (isset($_POST['EmailValidationBTN']) && $_SESSION['user_id']) {
                                         }
                                         ?>
 
-                                        <form action="" method="post">
-
+                                        <form action="" method="POST">
+                                        <div class="d-flex justify-content-center align-items-center text-center text-danger">
+                                    <div class="alert alert-<?= $alert ?>">
+                                        <?= $msg ?>
+                                    </div>
+                                </div>
 
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
@@ -191,7 +196,7 @@ if (isset($_POST['EmailValidationBTN']) && $_SESSION['user_id']) {
                                                 </div>
                                                 <input type="agreedrate2" class="form-control" id="agreedrate"
                                                     placeholder="Enter your agreedrate" readonly required>
-                                                <input type="hidden" class="form-control" id="agreedrate"
+                                                <input type="hidden" class="form-control" id="agreedrate2"
                                                     name="agreedrate" placeholder="Enter your agreedrate" readonly
                                                     required>
                                             </div>
@@ -199,7 +204,7 @@ if (isset($_POST['EmailValidationBTN']) && $_SESSION['user_id']) {
                                                 <div class="col-xs-12 p-b-20">
                                                     <button class="btn btn-block btn-lg btn-info"
                                                         style="background: black; color: white;" type="submit"
-                                                        name="EmailValidationBTN">Submit >></button>
+                                                        name="EmailValidationBTN">   Submit >></button>
                                                 </div>
                                             </div>
                                         </form>

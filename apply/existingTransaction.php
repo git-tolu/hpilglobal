@@ -33,9 +33,8 @@ if (isset($_POST['EmailValidationBTN']) && $_SESSION['user_id']) {
     $vat = '';
     $profit = '';
 
-    if (!empty($currency && $amount && $reason && $recipients && $hpiinterac && $agreedrate)) {
+    if (!empty($currency)  && !empty($amount) && !empty($reason) && !empty($recipients) && !empty($hpiinterac) && !empty($agreedrate)) {
 
-        // $sql = "UPDATE `usertransactiondetails` SET `currency`='$currency',`amount`=' $amount',`reason`='$reason',`recipients`='$recipients',`hpiinterac`='$hpiinterac',`agreedrate`='$agreedrate',`vat`='$vat',`profit`='$profit' WHERE `user_id`='$user_id'";
 
         $sql = "INSERT INTO `usertransactiondetails` (`user_id`, `firstname`, `lastname`, `email`, `address`, `zipcode`, `currency`, `amount`, `reason`, `recipients`, `hpiinterac`, `agreedrate`, `vat`, `profit`) VALUES ('$user_id', '$firstName','$lastName','$email','$address','$zipcode','$currency','$amount','$reason','$recipients','$hpiinterac','$agreedrate','$vat','$profit')";
         $result = mysqli_query($conn, $sql);
@@ -134,7 +133,11 @@ if (isset($_POST['EmailValidationBTN']) && $_SESSION['user_id']) {
                                         ?>
 
                                         <form action="" method="post">
-
+                                        <div class="d-flex justify-content-center align-items-center text-center text-danger">
+                                    <div class="alert alert-<?= $alert ?>">
+                                        <?= $msg ?>
+                                    </div>
+                                </div>
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon2">Firstname</span>
@@ -193,8 +196,6 @@ if (isset($_POST['EmailValidationBTN']) && $_SESSION['user_id']) {
                                                     echo '  <option value="' . $info8['cadtonaira'] . '">CAD{Canadian Dollar}</option>';
                                                     // }
                                                     ?>
-                                                    <!-- <option values="naira">Naira</option>
-                                                    <option values="cad">cad{Canadian Dollar}</option> -->
                                                 </select>
                                             </div>
                                             <div class="input-group mb-3">
@@ -235,7 +236,7 @@ if (isset($_POST['EmailValidationBTN']) && $_SESSION['user_id']) {
                                                 </div>
                                                 <input type="agreedrate2" class="form-control" id="agreedrate"
                                                     placeholder="Enter your agreedrate" readonly required>
-                                                <input type="hidden" class="form-control" id="agreedrate"
+                                                <input type="hidden" class="form-control" id="agreedrate2"
                                                     name="agreedrate" placeholder="Enter your agreedrate" readonly
                                                     required>
                                             </div>

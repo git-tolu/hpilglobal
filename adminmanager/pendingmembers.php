@@ -87,7 +87,7 @@ include("includes/pagehead.php");
 
                                                 <?php
 
-                                                $sql8 = "SELECT DISTINCT email FROM usertransactiondetails ";
+                                                $sql8 = "SELECT *  FROM usertransactiondetails ";
 
                                                 $result8 = mysqli_query($conn, $sql8);
                                                 if (mysqli_num_rows($result8) > 0) {

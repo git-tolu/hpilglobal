@@ -125,8 +125,6 @@ if (isset($_POST['EmailValidationBTN'])) {
                                                     placeholder="Enter the code sent" required>
                                             </div>
 
-
-
                                             <div class="form-group text-center">
                                                 <div class="col-xs-12 p-b-20">
                                                     <button class="btn btn-block btn-lg btn-info" style="background: black; color: white;" type="submit"
@@ -143,12 +141,6 @@ if (isset($_POST['EmailValidationBTN'])) {
                         </div>
                         <div class="col-xs-6 col-md-3"></div>
                     </div>
-
-
-
-
-
-
 
 
                     <!-- ============================================================== -->
