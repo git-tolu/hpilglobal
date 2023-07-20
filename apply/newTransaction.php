@@ -12,7 +12,7 @@ if (isset($_POST['EmailValidationBTN'])) {
     $lastName = mysqli_real_escape_string($conn, $_POST['lastName']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
 
-    if (!empty($firstName && $lastName && $email)) {
+    if (!empty($firstName) && empty($lastName) && empty($email)) {
         # code...
         $sql = "INSERT INTO `usertransactiondetails` (`user_id`, `firstname`, `lastname`, `email`) VALUES ('$user_id', '$firstName', '$lastName','$email')";
         $result = mysqli_query($conn, $sql);

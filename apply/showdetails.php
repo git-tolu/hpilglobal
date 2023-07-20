@@ -35,7 +35,7 @@ if (isset($_POST['EmailValidationBTN']) && $_SESSION['user_id']) {
     $vat = '';
     $profit = '';
 
-    if (!empty($currency && $amount && $reason && $recipients && $hpiinterac && $agreedrate)) {
+    if (!empty($currency)  && empty($amount) && empty($reason) && empty($recipients) && empty($hpiinterac) && empty($agreedrate)) {
 
         // $sql = "UPDATE `usertransactiondetails` SET `currency`='$currency',`amount`=' $amount',`reason`='$reason',`recipients`='$recipients',`hpiinterac`='$hpiinterac',`agreedrate`='$agreedrate',`vat`='$vat',`profit`='$profit' WHERE `user_id`='$user_id'";
 
