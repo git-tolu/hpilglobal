@@ -6,7 +6,7 @@ $yearreg = date("Y");
 $alert = '';
 $msg = '';
 if (isset($_POST['EmailValidationBTN']) && $_SESSION['user_id']) {
-var_dump($_POST);
+// var_dump($_POST);
     $user_id = $_SESSION['user_id'];
     $address = mysqli_real_escape_string($conn, $_POST['address']);
     $zipcode = mysqli_real_escape_string($conn, $_POST['zipcode']);

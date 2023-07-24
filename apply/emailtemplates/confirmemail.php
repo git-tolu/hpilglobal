@@ -12,7 +12,7 @@ $messageemail = "
   }
 </style>
 <center>
-  <div style='width: 500px !important; border: 3px solid ##ffbc34; padding: 30px; background-color:#fff !important;'>
+  <div style='width: 500px !important; border: 3px solid #ffbc34; padding: 30px; background-color:#fff !important;'>
     <table style='background-color:#fff !important;' align='center' role='presentation' cellspacing='0'
       cellpadding='0' border='0' width='100%'>
       <tr>
@@ -22,10 +22,10 @@ $messageemail = "
                       </div>
                   </tr>
                   <tr>
-                      <div style='text-align: center; color:##ffbc34'>
-            <hr style='color:##ffbc34;'>
-            <h2 style='color:##ffbc34; text-align: center;'>WELCOME TO HPILGLOBAL </h2>
-            <hr style='color:##ffbc34;'>
+                      <div style='text-align: center; color:#ffbc34'>
+            <hr style='color:#ffbc34;'>
+            <h2 style='color:#ffbc34; text-align: center;'>WELCOME TO HPILGLOBAL </h2>
+            <hr style='color:#ffbc34;'>
           </div>
         </td>
       </tr>
@@ -49,7 +49,7 @@ $messageemail = "
           <div>
 		  <br>
 		  <hr>
-            <p style='color:##ffbc34;'>&copy; $ty HPILGLOBAL. All Rights Reserved | support@hostelafrica360.com</p>
+            <p style='color:#ffbc34;'>&copy; $ty HPILGLOBAL. All Rights Reserved | support@hostelafrica360.com</p>
           </div>
         </td>
         
