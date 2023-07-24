@@ -142,89 +142,113 @@ if (isset($_POST['EmailValidationBTN']) && $_SESSION['user_id']) {
                                                     Transaction Details Filled Successfully
                                                 </div>
                                             </div>
+                                            <label for="" class=" text-capitalize">Firstname</label>
+
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon2">Firstname</span>
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <p class="form-control">
                                                     <?= $fetch['firstname'] ?>
                                                 </p>
                                             </div>
+                                            <label for="" class=" text-capitalize">Lastname</label>
 
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon2">Lastname</span>
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <p class="form-control">
                                                     <?= $fetch['lastname'] ?>
                                                 </p>
                                             </div>
+                                            <label for="" class=" text-capitalize">Email</label>
 
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon2">Email</span>
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <p class="form-control">
                                                     <?= $fetch['email'] ?>
                                                 </p>
                                             </div>
+                                            <label for="" class=" text-capitalize">Address</label>
+
                                             <div class="input-group mb-3">
+                                              
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon2">Address</span>
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <p class="form-control">
                                                     <?= $fetch['address'] ?>
                                                 </p>
                                             </div>
+                                            <label for="" class=" text-capitalize">Zipcode</label>
+
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon2">Zipcode</span>
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <p class="form-control">
                                                     <?= $fetch['zipcode'] ?>
                                                 </p>
                                             </div>
+                                            <label for="" class=" text-capitalize">Currency</label>
+
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text text-capitalize"
-                                                        id="basic-addon2">currency</span>
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <p class="form-control">
                                                     <?= $fetch['currency'] ?>
                                                 </p>
                                             </div>
+                                            <label for="" class=" text-capitalize">Amount</label>
+
                                             <div class="input-group mb-3">
+                                               
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text text-capitalize"
-                                                        id="basic-addon2">Amount </span>
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <p class="form-control">
                                                     <?= $fetch['amount'] ?>
                                                 </p>
                                             </div>
+                                            <label for="" class=" text-capitalize">reason for the
+                                                        money
+                                                        order</label>
+
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text text-capitalize"
-                                                        id="basic-addon2">reason for the
-                                                        money
-                                                        order</span>
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <p class="form-control">
                                                     <?= $fetch['reason'] ?>
                                                 </p>
                                             </div>
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text text-capitalize"
-                                                        id="basic-addon2">recipient's
+                                            <label for="" class=" text-capitalize">recipient's
                                                     account
-                                                    number or interac</span>
+                                                    number or interac</label>
+
+                                            <div class="input-group mb-3">
+                                               
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <p class="form-control">
                                                     <?= $fetch['recipients'] ?>
                                                 </p>
                                             </div>
-                                            <div class="input-group mb-3">
+                                            <!-- <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text text-capitalize"
                                                         id="basic-addon2">hpiinterac</span>
@@ -232,11 +256,13 @@ if (isset($_POST['EmailValidationBTN']) && $_SESSION['user_id']) {
                                                 <p class="form-control">
                                                     <?= $fetch['hpiinterac'] ?>
                                                 </p>
-                                            </div>
+                                            </div> -->
+                                            <label for="" class=" text-capitalize">agreedrate</label>
+
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text text-capitalize"
-                                                        id="basic-addon2">agreedrate</span>
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <p class="form-control">
                                                     <?= $fetch['agreedrate'] ?>

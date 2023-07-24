@@ -19,12 +19,10 @@ var_dump($_POST);
     $vat = '';
     $profit = '';
 
-    if (!empty($address)  && !empty($zipcode) && !empty($currency) && !empty($amount) && !empty($reason) && !empty($recipients) && !empty($hpiinterac) && !empty($agreedrate)) {
+    if (!empty($address)  && !empty($zipcode) && !empty($currency) && !empty($amount) && !empty($reason) && !empty($recipients) && !empty($agreedrate)) {
         # code...
         $sql = "UPDATE `usertransactiondetails` SET `address`='$address',`zipcode`='$zipcode',`currency`='$currency',`amount`=' $amount',`reason`='$reason',`recipients`='$recipients',`hpiinterac`='$hpiinterac',`agreedrate`='$agreedrate',`vat`='$vat',`profit`='$profit' WHERE `user_id`='$user_id'";
         $result = mysqli_query($conn, $sql);
-        var_dump($sql);
-        var_dump($result);
         if ($result) {
             header('location: showdetails.php');
         }
@@ -123,25 +121,31 @@ var_dump($_POST);
                                         <?= $msg ?>
                                     </div>
                                 </div>
-
-                                            <div class="input-group mb-3">
+                                            <label for="" class=" text-capitalize">Address</label>
+                                            <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon2">Address</span>
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" id="address" name="address"
                                                     placeholder=" Address" required>
                                             </div>
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon2">Zipcode</span>
+                                            <label for="" class=" text-capitalize">Zipcode</label>
+
+                                            <div class="input-group mb-2">
+                                            <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" id="zipcode" name="zipcode"
                                                     placeholder="zip code" required>
                                             </div>
-                                            <div class="input-group mb-3">
+
+                                            <label for="" class=" text-capitalize">Currency Needed</label>
+                                            <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text text-capitalize"
-                                                        id="basic-addon2">Currency Needed</span>
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <select name="currency" id="currency" class="form-control">
                                                     <option values="">Select Currency needed</option>
@@ -158,41 +162,47 @@ var_dump($_POST);
                                                     <option values="cad">cad{Canadian Dollar}</option> -->
                                                 </select>
                                             </div>
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon2">Amount
-                                                        Needed</span>
+                                            <label for="" class=" text-capitalize">Amount Needed</label>
+
+                                            <div class="input-group mb-2">
+                                                 <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" id="amount" name="amount"
                                                     placeholder="Amount" required>
                                             </div>
-                                            <div class="input-group mb-3">
+                                            <label for="" class=" text-capitalize">Reason</label>
+
+                                            <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon2">Reason</span>
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" id="reason" name="reason"
                                                     placeholder="Enter your reason for money order" required>
                                             </div>
-                                            <div class="input-group mb-3">
+                                            <label for="" class=" text-capitalize">Recipients Acct</label>
+                                            <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon2">Recipients
-                                                        Acct</span>
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <input type="text" class="form-control" id="recipients"
                                                     name="recipients"
                                                     placeholder="Enter your recipients Account text or interac"
                                                     required>
                                             </div>
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon2">Hpiinterac</span>
-                                                </div>
-                                                <input type="text" class="form-control" id="hpiinterac"
+
+                                            <div class="input-group mb-2">
+                                                <input type="hidden" class="form-control" id="hpiinterac"
                                                     name="hpiinterac" placeholder="Enter your hpiinterac" required>
                                             </div>
-                                            <div class="input-group mb-3">
+                                            <label for="" class=" text-capitalize">Agreed Rate</label>
+                                            <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon2">Agreed Rate</span>
+                                                    <span class="input-group-text" id="basic-addon2"><i
+                                                            class=" ti-angle-double-down"></i></span>
                                                 </div>
                                                 <input type="agreedrate2" class="form-control" id="agreedrate"
                                                     placeholder="Enter your agreedrate" readonly required>
