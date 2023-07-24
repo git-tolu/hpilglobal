@@ -148,6 +148,7 @@ if (isset($_POST['EmailValidationBTN'])) {
                                         </form>
 
 
+
                                     </div>
                                 </div>
                             </div>

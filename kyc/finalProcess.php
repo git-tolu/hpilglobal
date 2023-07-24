@@ -66,35 +66,63 @@ if (isset($_SESSION['user_id'])) {
 
 // }
 
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     $targetDir = 'userPhoto/'; // Directory to store photos
+//     $targetFile = $_FILES['photoInput']['name'];
+//     $targetFile = $targetDir . basename($_FILES['photoInput']['name']);
+
+//     // Check if the file is a valid image
+//     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+//     if (getimagesize($_FILES['photoInput']['tmp_name']) === false) {
+//         $alert = 'danger';
+//         $msg = 'Invalid image file.';
+//     }
+
+//     // Move the uploaded photo to the target directory
+//     if (move_uploaded_file($_FILES['photoInput']['tmp_name'], $targetFile)) {
+//         $sql = "UPDATE `kyc` SET `userPhoto`='$targetFile' WHERE `user_id`='$user_id'";
+
+//         $result = mysqli_query($conn, $sql);
+//         if ($result) {
+//             $_SESSION['user_id'] = $user_id;
+//             // header('location: showdetails.php');
+//             $alert = 'success';
+//             $msg = 'Photo uploaded successfully.';
+//         }
+//     } else {
+//         $alert = 'danger';
+//         $msg = 'Failed to upload photo.';
+//     }
+// }
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $targetDir = 'userPhoto/'; // Directory to store photos
-    $targetFile = $_FILES['photoInput']['name'];
-    $targetFile = $targetDir . basename($_FILES['photoInput']['name']);
+    $imageData = $_POST['image'];
+    echo $imageData;
+    // $decodedImageData = base64_decode(str_replace('data:image/jpeg;base64,', '', $imageData));
 
-    // Check if the file is a valid image
-    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-    if (getimagesize($_FILES['photoInput']['tmp_name']) === false) {
-        $alert = 'danger';
-        $msg = 'Invalid image file.';
-    }
+    // $imageName = 'captured_image_' . time() . '.jpeg'; // Generate a unique image name
+    // $imagePath = 'userPhoto/' . $imageName; // Set the path to your folder
+    // file_put_contents($imagePath, $decodedImageData);
 
+    // Perform database operations here to store image information (e.g., image path, timestamp, user information) in your database.
     // Move the uploaded photo to the target directory
-    if (move_uploaded_file($_FILES['photoInput']['tmp_name'], $targetFile)) {
-        $sql = "UPDATE `kyc` SET `userPhoto`='$targetFile' WHERE `user_id`='$user_id'";
+    // if (move_uploaded_file($_FILES['image']['tmp_name'], 'userPhoto/' .$decodedImageData)) {
+    //     $sql = "UPDATE `kyc` SET `userPhoto`='$decodedImageData' WHERE `user_id`='$user_id'";
 
-        $result = mysqli_query($conn, $sql);
-        if ($result) {
-            $_SESSION['user_id'] = $user_id;
-            // header('location: showdetails.php');
-            $alert = 'success';
-            $msg = 'Photo uploaded successfully.';
-        }
-    } else {
-        $alert = 'danger';
-        $msg = 'Failed to upload photo.';
-    }
+    //     $result = mysqli_query($conn, $sql);
+    //     if ($result) {
+    //         $_SESSION['user_id'] = $user_id;
+    //         // header('location: showdetails.php');
+    //         $alert = 'success';
+    //         $msg = 'Photo uploaded successfully.';
+    //     }
+    // } else {
+    //     $alert = 'danger';
+    //     $msg = 'Failed to upload photo.';
+    // }
+    // Respond with a success message or appropriate response to the client.
 }
-
 
 
 ?>
@@ -182,7 +210,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 <?= $msg ?>
                                             </div>
                                         </div>
-                                        <form action="" method="post" enctype="multipart/form-data">
+                                        <!-- <form action="" method="post" enctype="multipart/form-data">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon2"><i
@@ -216,13 +244,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                         name="EmailValidationBTN">Submit >></button>
                                                 </div>
                                             </div>
-                                            <!-- <form action="upload.php" method="post" enctype="multipart/form-data">
-                                                <input type="file" accept="image/*" capture="camera" id="photoInput"
-                                                    name="photoInput" style="display: none;">
-                                                <button type="button" id="captureButton">Capture Photo</button>
-                                                <input type="submit" value="Upload Photo">
-                                            </form> -->
-                                        </form>
+
+                                        </form> -->
+                                        <button id="captureButton">Capture Image</button>
+                                        <video id="video" style="display: none;"></video>
+                                        <canvas id="canvas" style="display: none;"></canvas>
+
+
 
 
                                     </div>
@@ -306,6 +334,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         document.getElementById('captureButton').addEventListener('click', function () {
             var photoInput = document.getElementById('photoInput');
             photoInput.click();
+        });
+        const captureButton = document.getElementById('captureButton');
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+
+        captureButton.addEventListener('click', () => {
+            const constraints = { video: true };
+            navigator.mediaDevices.getUserMedia(constraints)
+                .then((stream) => {
+                    video.style.display = 'block';
+                    video.srcObject = stream;
+                    video.play();
+                })
+                .catch((error) => {
+                    console.error('Error accessing camera: ', error);
+                });
+        });
+
+        video.addEventListener('canplay', () => {
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+        });
+
+        captureButton.addEventListener('click', () => {
+            canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+            const imageData = canvas.toDataURL('image/jpeg');
+
+            // Send imageData to the server using XMLHttpRequest or Fetch API.
+            // Example:
+            // fetch('finalProcess.php', {
+            //     method: 'POST',
+            //     body: JSON.stringify({ image: imageData }),
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     }
+            // });
+            $.ajax({
+                type: "POST",
+                url: "include/action.php",
+                data: { image: imageData },
+                success: function (response) {
+                    console.log(response);
+                    if (response = 'Photo uploaded successfully.') {
+                        $('.alert').addClass('alert-success');
+                        $('.alert').text(response);
+                    } else {
+                        $('.alert').addClass('alert-danger');
+                        $('.alert').text(response);
+                        
+                    }
+                }
+            });
         });
 
         $("#showfile").hide();
