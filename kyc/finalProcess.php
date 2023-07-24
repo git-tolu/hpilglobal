@@ -246,9 +246,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             </div>
 
                                         </form> -->
-                                        <button id="captureButton">Capture Image</button>
-                                        <video id="video" style="display: none;"></video>
-                                        <canvas id="canvas" style="display: none;"></canvas>
+                                        <div class="form-group text-center justify-content-center ">
+                                                <video id="video" style="display: none; width: 100%;"></video>
+                                                <canvas id="canvas" style="display: none; width: 100%;"></canvas>
+                                                <button id="captureButton" class="btn btn-block btn-lg "
+                                                                style="background: black; color: white;" >Capture Image</button>
+                                        </div>
 
 
 
@@ -370,22 +373,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //         'Content-Type': 'application/json'
             //     }
             // });
-            $.ajax({
-                type: "POST",
-                url: "include/action.php",
-                data: { image: imageData },
-                success: function (response) {
-                    console.log(response);
-                    if (response = 'Photo uploaded successfully.') {
-                        $('.alert').addClass('alert-success');
-                        $('.alert').text(response);
-                    } else {
-                        $('.alert').addClass('alert-danger');
-                        $('.alert').text(response);
-                        
+            // video
+            // vid = $('#video').attr('style');
+            // console.log(vid);
+            if ($('#video').attr('style') == 'display: block;') {
+                
+                $.ajax({
+                    type: "POST",
+                    url: "include/action.php",
+                    data: { image: imageData },
+                    success: function (response) {
+                        console.log(response);
+                        if (response = 'Photo uploaded successfully.') {
+                            $('.alert').addClass('alert-success');
+                            $('.alert').text(response);
+                        } else {
+                            $('.alert').addClass('alert-danger');
+                            $('.alert').text(response);
+                            
+                        }
                     }
-                }
-            });
+                });
+            }
         });
 
         $("#showfile").hide();
